@@ -17,20 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'useriai'], function(){
-    Route::get('', 'UserisController@index')->name('useris.index');
-    Route::get('create', 'UserisController@create')->name('useris.create');
-    Route::post('store', 'UserisController@store')->name('useris.store');
-    Route::get('edit/{useris}', 'UserisController@edit')->name('useris.edit');
-    Route::post('update/{useris}', 'UserisController@update')->name('useris.update');
-    Route::post('delete/{useris}', 'UserisController@destroy')->name('useris.destroy');
-    Route::get('show/{useris}', 'UserisController@show')->name('useris.show');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'accounts'], function(){
+    Route::get('', 'AccountController@index')->name('account.index');
+    Route::get('create', 'AccountController@create')->name('account.create');
+    Route::post('store', 'AccountController@store')->name('account.store');
+    Route::get('edit/{account}', 'AccountController@edit')->name('account.edit');
+    Route::post('update/{account}', 'AccountController@update')->name('account.update');
+    Route::post('delete/{account}', 'AccountController@destroy')->name('account.destroy');
+    Route::get('show/{account}', 'AccountController@show')->name('account.show');
  });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
