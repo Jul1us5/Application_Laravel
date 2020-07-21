@@ -1,3 +1,5 @@
+
+
 @foreach ($account as $accounts)
 {{$accounts->firstname}} {{$accounts->lastname}} {{$accounts->counts}} {{$accounts->code}} {{$accounts->bill}}
   <a href="{{route('account.plus',[$accounts])}}"><button>Pridėti</button></a>
