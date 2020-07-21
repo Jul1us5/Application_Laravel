@@ -87,11 +87,12 @@ class AccountController extends Controller
      */
     public function update(Request $request, Account $account)
     {
-        $account->firstname = $request->firstname;
-        $account->lastname = $request->lastname;
-        $account->bill = $request->bill;
-        $account->save();
-        return redirect()->route('account.index');
+        if($_POST['plus']) {
+            $account->bill += $_POST['plus'];
+            $account->save();
+            return redirect()->route('account.index');
+        }
+
     }
 
     /**
