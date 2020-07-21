@@ -68,9 +68,14 @@ class AccountController extends Controller
      * @param  \App\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function edit(Account $account)
+    public function plus(Account $account)
     {
-        return view('accounts.edit', ['account' => $account]);
+        
+        return view('accounts.plus', ['account' => $account]);
+    }
+    public function minus(Account $account)
+    {
+        return view('accounts.minus', ['account' => $account]);
     }
 
     /**
