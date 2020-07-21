@@ -25,7 +25,8 @@ Route::group(['prefix' => 'accounts'], function(){
     Route::get('', 'AccountController@index')->name('account.index');
     Route::get('create', 'AccountController@create')->name('account.create');
     Route::post('store', 'AccountController@store')->name('account.store');
-    Route::get('edit/{account}', 'AccountController@edit')->name('account.edit');
+    Route::get('plus/{account}', 'AccountController@plus')->name('account.plus');
+    Route::get('minus/{account}', 'AccountController@minus')->name('account.minus');
     Route::post('update/{account}', 'AccountController@update')->name('account.update');
     Route::post('delete/{account}', 'AccountController@destroy')->name('account.destroy');
     Route::get('show/{account}', 'AccountController@show')->name('account.show');
