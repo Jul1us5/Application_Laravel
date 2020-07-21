@@ -1,7 +1,7 @@
 <form method="POST" action="{{route('account.update',[$account->id])}}">
-   Vardas: <input type="text" name="firstname" value="{{$account->firstname}}">
-   Pavardė: <input type="text" name="lastname" value="{{$account->lastname}}">
-   Sąskaita: <input type="text" name="bill" value="{{$account->bill}}">
+Vardas: {{ $account['firstname'] }}
+   Pavardė: {{ $account['lastname'] }}
+   Sąskaita: <input type="text" name="minus" value="0">
    @csrf
-   <button type="submit">Pridėti</button>
+   <button type="submit">Atimti</button>
 </form>

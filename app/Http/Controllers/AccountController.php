@@ -59,6 +59,7 @@ class AccountController extends Controller
      */
     public function show(Account $account)
     {
+
         return view('accounts.show');
     }
 
@@ -87,11 +88,21 @@ class AccountController extends Controller
      */
     public function update(Request $request, Account $account)
     {
-        $account->firstname = $request->firstname;
-        $account->lastname = $request->lastname;
-        $account->bill = $request->bill;
-        $account->save();
-        return redirect()->route('account.index');
+        if(isset($_POST['plus'])) {
+            $account->bill += $_POST['plus'];
+            $account->save();
+            return redirect()->route('account.index');
+        }
+        if(isset($_POST['minus'])) {
+            if($account->bill < $_POST['minus']) {
+                return redirect()->route('account.index');
+            }
+            $account->bill -= $_POST['minus'];
+            $account->save();
+            return redirect()->route('account.index');
+        }
+       
+
     }
 
     /**
@@ -105,4 +116,5 @@ class AccountController extends Controller
         $account->delete();
         return redirect()->route('account.index');
     }
+
 }

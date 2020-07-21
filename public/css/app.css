@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -10928,8 +10928,20 @@ a.text-dark:focus {
   }
 }
 
-.color {
-  display: inline-block;
-  color: red;
+.col-md-8 {
+  flex: 0 0 96.6666666667%;
+  max-width: 96.6666666667%;
+}
+
+.card-header a {
+  float: right;
+  text-decoration: none;
+  margin: 0px 20px;
+}
+
+.card-header a:nth-child(1) {
+  float: left;
+  text-decoration: none;
+  margin: 0px 20px;
 }
 
