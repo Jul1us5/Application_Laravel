@@ -40,6 +40,12 @@
                         @csrf
                         <button type="submit">Atimti</button>
                      </form>
+                     <form method="POST" action="{{route('account.destroy', [$account])}}">
+                        @csrf
+                        <button class="x" type="submit">x</button>
+                        </form>
+                          
+                        <br>
 
                 </div>
             </div>

@@ -34,9 +34,17 @@
                         Pavardė: {{ $account['lastname'] }}<br/>
                         Sąskaita: {{ $account['bill'] }} €<br/>
                         <input type="text" name="plus" value="0">
+                        
                         @csrf
                         <button type="submit">Pridėti</button>
                      </form>
+      
+                     <form method="POST" action="{{route('account.destroy', [$account])}}">
+                        @csrf
+                        <button class="x" type="submit">x</button>
+                        </form>
+                          
+                        <br>
 
                 </div>
             </div>

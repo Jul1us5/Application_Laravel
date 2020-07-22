@@ -25,17 +25,24 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                        <div class="index-main">
+                            <span>VARDAS</span>
+                            <span>PAVARDĖ</span>
+                            <span>ID</span>
+                            <span>ASMENS KODAS</span>
+                            <span>Eur.</span>
+                            </div>
+                        <div class="buttons">
                     @foreach ($account as $accounts)
-                      {{$accounts->firstname}} {{$accounts->lastname}} {{$accounts->counts}} {{$accounts->code}} {{$accounts->bill}}
-                        <a href="{{route('account.plus',[$accounts])}}"><button>Pridėti</button></a>
-                        <a href="{{route('account.minus',[$accounts])}}"><button>Atimti</button></a>
-                        <form method="POST" action="{{route('account.destroy', [$accounts])}}">
-                        @csrf
-                        <button type="submit">Pašalinti</button>
-                        </form>
+                      <span>{{$accounts->firstname}}</span> <span>{{$accounts->lastname}}</span> <span>{{$accounts->counts}}</span> <span>{{$accounts->code}}</span> <span>{{$accounts->bill}} €</span>
+                      <a href="{{route('account.plus',[$accounts])}}"><span>+</a>
+                        <a href="{{route('account.minus',[$accounts])}}">-</span></a>
+                        
+                          
                         <br>
                     @endforeach
+        
+                    </div>
                 </div>
             </div>
         </div>
