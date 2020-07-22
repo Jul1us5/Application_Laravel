@@ -48,7 +48,7 @@ class AccountController extends Controller
         $account->bill = 0;
         $account->img = 0;
         $account->save();
-        return redirect()->home();
+        return redirect()->route('account.index')->with('success_message', 'Vartotojas pridetas.');
     }
 
     /**
@@ -89,19 +89,21 @@ class AccountController extends Controller
     public function update(Request $request, Account $account)
     {
 
-        // dd($request['plus']);
-        if(isset($request['plus'])) {
-            $account->bill += $request['plus'];
+        // dd($request->plus);
+        if(isset($request->plus)) {
+            $account->bill += $request->plus;
             $account->save();
-            return redirect()->route('account.index');
-        }
-        if(isset($request['minus'])) {
-            if($account->bill < $request['minus']) {
-                return redirect()->route('account.index');
+            return redirect()->route('account.index')->with('success_message', 'Pinigai sekmingai priskaičiuoti.');
+        } 
+        if(isset($request->minus)) {
+            if($account->bill < $request->minus) {
+                return redirect()->route('account.index')->with('success_message', 'Per mažai pinigų.');
             }
-            $account->bill -= $request['minus'];
+            $account->bill -= $request->minus;
             $account->save();
-            return redirect()->route('account.index');
+            return redirect()->route('account.index')->with('success_message', 'Pinigai sekmingai nuskaičiuoti.');
+        } else {
+
         }
        
 
@@ -116,7 +118,7 @@ class AccountController extends Controller
     public function destroy(Account $account)
     {
         $account->delete();
-        return redirect()->route('account.index');
+        return redirect()->route('account.index')->with('success_message', 'Vartotojas ištrintas!');
     }
 
 }
