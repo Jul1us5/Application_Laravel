@@ -89,17 +89,17 @@ class AccountController extends Controller
     public function update(Request $request, Account $account)
     {
 
-        // dd($request['plus']);
-        if(isset($request['plus'])) {
-            $account->bill += $request['plus'];
+        // dd($request->plus);
+        if(isset($request->plus)) {
+            $account->bill += $request->plus;
             $account->save();
             return redirect()->route('account.index');
-        }
-        if(isset($request['minus'])) {
-            if($account->bill < $request['minus']) {
+        } 
+        if(isset($request->minus)) {
+            if($account->bill < $request->minus) {
                 return redirect()->route('account.index');
             }
-            $account->bill -= $request['minus'];
+            $account->bill -= $request->minus;
             $account->save();
             return redirect()->route('account.index');
         }
