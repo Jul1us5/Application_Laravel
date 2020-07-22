@@ -10945,3 +10945,53 @@ a.text-dark:focus {
   margin: 0px 20px;
 }
 
+.buttons {
+  display: inline-block;
+  float: right;
+  width: 100%;
+}
+
+.buttons input,
+.buttons button,
+.buttons select,
+.buttons optgroup,
+.buttons textarea {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.index-main {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.index-main span {
+  display: inline-block;
+  width: 15%;
+  text-align: center;
+}
+
+span {
+  display: inline-block;
+  width: 15%;
+  text-align: center;
+}
+
+.x {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
