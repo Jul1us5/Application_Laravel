@@ -46,7 +46,14 @@ class AccountController extends Controller
         $account->counts = $counts;
         $account->code = $request->code;
         $account->bill = 0;
-        $account->img = 0;
+        $account->img = 'user.png';
+        if ($request->hasFile('img')) {
+            $image = $request->file('img');
+            $name = $request->file('img')->getClientOriginalName();
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $name);
+            $account->img = $name;
+        }
         $account->save();
         return redirect()->route('account.index')->with('success_message', 'Vartotojas pridetas.');
     }
