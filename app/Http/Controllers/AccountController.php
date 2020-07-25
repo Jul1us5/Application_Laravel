@@ -46,7 +46,7 @@ class AccountController extends Controller
         $account->counts = $counts;
         $account->code = $request->code;
         $account->bill = 0;
-        $account->img = 'user.png';
+        $account->img = 'user.svg';
         if ($request->hasFile('img')) {
             $image = $request->file('img');
             $name = $request->file('img')->getClientOriginalName();
