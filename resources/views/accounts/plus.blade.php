@@ -30,6 +30,7 @@
                     @endif
 
                     <form method="POST" action="{{route('account.update',[$account->id])}}">
+                    <img src="{{asset('images/'.$account->img)}}" style="width: 250px; height: auto;"><br/>
                         Vardas: {{ $account['firstname'] }}<br/>
                         Pavardė: {{ $account['lastname'] }}<br/>
                         Sąskaita: {{ $account['bill'] }} €<br/>
