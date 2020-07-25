@@ -27,9 +27,10 @@
                     @endif
 
                     <h1>ADD ACCOUNTS</h1>
-                    <form action="{{route('account.store')}}" method="post">
+                    <form method="post" action="{{route('account.store')}}" enctype="multipart/form-data">
                         Vardas: <input type="text" pattern="[A-Za-z]{3,20}" name="firstname" required><br><br>
                         Pavardė: <input type="text" pattern="[A-Za-z]{3,20}" name="lastname" required><br><br>
+                        Portret: <input type="file" name="img" required><br><br>
                         Asmens Kodas: <input type="text" pattern="[0-9]{11,11}" title="Asmens kodą sudaro 11 skaičių" name="code" required><br><br>
                         <button type="submit">Pridėti</button>
                         @csrf
