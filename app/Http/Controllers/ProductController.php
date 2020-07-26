@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Album;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $product = Product::all();
+        return view('products.index', ['account' => $product]);
     }
 
     /**
@@ -24,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $product = Product::all();
+        return view('products.create');
     }
 
     /**
@@ -35,7 +38,31 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $product = new Product();
+        $album = new Album();
+        $product->title = $request->title;
+        $product->name = $request->name;
+        $product->about = $request->about;
+        $product->code = $request->code;
+        $product->notice = $request->notice;
+        $product->tag = $request->tag;
+        $album->img = 'user.svg';
+        if ($request->hasFile('img')) {
+            $image = $request->file('img');
+            $name = $request->file('img')->getClientOriginalName();
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $name);
+            $album->title = $request->title;
+            $album->name = $request->name;
+            $album->img = $name;
+     
+        }
+        $product->save();
+        return redirect()->route('product.index')->with('success_message', 'Yra!');
+
+
+        
     }
 
     /**

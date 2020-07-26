@@ -25,14 +25,16 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <h1>ADD ACCOUNTS</h1>
-                    <form method="post" action="{{route('account.store')}}" enctype="multipart/form-data">
-                        Vardas: <input type="text" pattern="[A-Za-z]{3,20}" name="firstname" required><br><br>
-                        Pavardė: <input type="text" pattern="[A-Za-z]{3,20}" name="lastname" required><br><br>
-                        Portret: <input type="file" name="img"><br><br>
-                        Asmens Kodas: <input type="text" pattern="[0-9]{11,11}" title="Asmens kodą sudaro 11 skaičių" name="code" required><br><br>
-                        <button type="submit">Pridėti</button>
+                    <h1>Sukurti</h1>
+                    <form method="post" action="{{route('product.store')}}" enctype="multipart/form-data">
+                        Title: <input type="text" pattern="[A-Za-z]{3,20}" name="title" required><br><br>
+                        Name: <input type="text" pattern="[A-Za-z]{3,20}" name="name" required><br><br>
+                        About: <input type="text" name="about"><br><br>
+                        Kodas: <input type="text" pattern="[0-9]{6,6}" title="Kodą sudaro 11 skaičių" name="code" required><br><br>
+                        Notice: <input type="text" name="notice"><br><br>
+                        Tag: <input type="text" name="tag"><br><br>
+                        Img: <input type="file" name="img"><br><br>
+                        <button type="submit">Sukurti</button>
                         @csrf
                     </form>
 
