@@ -32,3 +32,23 @@ Route::group(['prefix' => 'accounts'], function(){
     Route::get('show/{account}', 'AccountController@show')->name('account.show');
  });
 
+ Route::group(['prefix' => 'products'], function(){
+    Route::get('', 'ProductController@index')->name('product.index');
+    Route::get('create', 'ProductController@create')->name('product.create');
+    Route::post('store', 'ProductController@store')->name('product.store');
+    Route::get('set/{product}', 'ProductController@set')->name('product.set');
+    Route::get('unset/{product}', 'ProductController@unset')->name('product.unset');
+    Route::post('update/{product}', 'ProductController@update')->name('product.update');
+    Route::post('delete/{product}', 'ProductController@destroy')->name('product.destroy');
+    Route::get('show/{product}', 'ProductController@show')->name('product.show');
+ });
+
+ Route::group(['prefix' => 'albums'], function(){
+    Route::get('', 'ProductController@index')->name('album.index');
+    Route::get('create', 'AlbumController@create')->name('album.create');
+    Route::post('store', 'AlbumController@store')->name('album.store');
+    Route::post('update/{album}', 'AlbumController@update')->name('album.update');
+    Route::post('delete/{album}', 'AlbumController@destroy')->name('album.destroy');
+    Route::get('show/{album}', 'AlbumController@show')->name('album.show');
+ });
+
