@@ -17,9 +17,9 @@
             <div class="card">
                <div class="card-header"><a href="{{route('home')}}"><b>{{ __('Pagrindinis') }}</b></a>
                
-               <a href="{{route('account.index')}}">Sąrašas</a>
-               <!-- <a href="{{route('account.index')}}">Peržiureti</a> -->
-               <a href="{{route('account.create')}}">Pridėti naują</a>
+            <a href="{{route('account.index')}}">Sąrašas</a>
+            <a href="{{route('product.index')}}">Sukurti</a>
+            <a href="{{route('account.create')}}">Pridėti naują</a>
                
          
                </div>
