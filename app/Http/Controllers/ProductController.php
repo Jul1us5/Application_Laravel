@@ -47,15 +47,13 @@ class ProductController extends Controller
         $product->code = $request->code;
         $product->notice = $request->notice;
         $product->tag = $request->tag;
-        $album->img = 'user.svg';
+        $product->img = 'user.svg';
+        // $album->img = 'user.svg';
         if ($request->hasFile('img')) {
             $image = $request->file('img');
             $name = $request->file('img')->getClientOriginalName();
             $destinationPath = public_path('/images');
             $image->move($destinationPath, $name);
-            $album->title = $request->title;
-            $album->name = $request->name;
-            $album->img = $name;
      
         }
         $product->save();
