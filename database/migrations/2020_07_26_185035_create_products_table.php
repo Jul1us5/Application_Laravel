@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('code', 255);
             $table->string('notice', 255);
             $table->string('tag', 255);
-            // $table->string('img', 255);
+            $table->string('img', 255);
             // $table->unsignedBigInteger('account_id');
             // $table->foreign('account_id')->references('id')->on('accounts');
             $table->timestamps();
