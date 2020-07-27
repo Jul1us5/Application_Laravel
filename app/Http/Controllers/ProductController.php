@@ -48,21 +48,29 @@ class ProductController extends Controller
         $product->notice = $request->notice;
         $product->tag = $request->tag;
         $product->save();
-        // $product->img = 'user.svg';
-        // $album->img = 'user.svg';
-        if ($request->hasFile('img')) {
-            $image = $request->file('img');
-            $name = $request->file('img')->getClientOriginalName();
-            $destinationPath = public_path('/images');
+
+
+
+        foreach ($request->file('img') as $image) {
+            $name = $image->getClientOriginalName();
+            $destinationPath = public_path('/images/products');
             $image->move($destinationPath, $name);
-     
+
+            $album = new Album();
+            $album->photo = $name;
+            $album->product_id = $product->id;
+            $album->save();
+            
         }
-        // $product->save();
-        return redirect()->route('product.index')->with('success_message', 'Yra!');
+        return redirect()->route('product.index');
 
 
         
     }
+
+
+    // return redirect()->route('product.index')->with('success_message', 'Yra!');
+
 
     /**
      * Display the specified resource.
