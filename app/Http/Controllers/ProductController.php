@@ -40,14 +40,15 @@ class ProductController extends Controller
     {
 
         $product = new Product();
-        $album = new Album();
+        // $album = new Album();
         $product->title = $request->title;
         $product->name = $request->name;
         $product->about = $request->about;
         $product->code = $request->code;
         $product->notice = $request->notice;
         $product->tag = $request->tag;
-        $product->img = 'user.svg';
+        $product->save();
+        // $product->img = 'user.svg';
         // $album->img = 'user.svg';
         if ($request->hasFile('img')) {
             $image = $request->file('img');
@@ -56,7 +57,7 @@ class ProductController extends Controller
             $image->move($destinationPath, $name);
      
         }
-        $product->save();
+        // $product->save();
         return redirect()->route('product.index')->with('success_message', 'Yra!');
 
 

@@ -5,7 +5,13 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+    
+                    @include('layouts.menu')
+            
                 <div class="card-body">
 
                     @if (session('status'))
@@ -23,7 +29,6 @@
                         <button type="submit">Pridėti</button>
                         @csrf
                     </form>
-
                 </div>
             </div>
         </div>
