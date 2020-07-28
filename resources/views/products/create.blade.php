@@ -27,7 +27,12 @@
                         Kodas: <input type="text" pattern="[0-9]{6,6}" title="Kodą sudaro 6 skaičių" name="code" required><br><br>
                         Notice: <input type="text" name="notice"><br><br>
                         Tag: <input type="text" name="tag"><br><br>
-                        Img: <input type="file" name="img[]"><br><br>
+
+                        <div id="product-photo-inputs">
+                        Img: <input type="file" name="img[]"><br><br><br>
+                        </div>
+                        
+                        <button id="add-product-photo" type="button">Add Photo</button>
                         <button type="submit">Sukurti</button>
                         @csrf
                     </form>

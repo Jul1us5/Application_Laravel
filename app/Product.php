@@ -10,4 +10,5 @@ class Product extends Model
     {
         return $this->hasMany('App\Album', 'product_id', 'id');
     }
+ 
 }

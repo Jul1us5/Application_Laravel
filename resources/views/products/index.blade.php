@@ -21,19 +21,29 @@
                         </div>
                     @endif
                     @foreach ($products as $product)
-                        @foreach ($product->getImages as $item)
+                        
                             <div class="product">
                                 <h1>{{$product->title}}</h1>
-                                <img src="{{asset('images/products/'.$item->photo)}}">
+                                <!-- @foreach ($product->getImages as $item)
+
+                            
                                 
+                                @endforeach -->
+                                <img src="{{asset('images/products/'.$product->getImages[0]->photo)}}">
+                            
                                 <title>{{$product->name}}</title>
                                 <span>{{$product->about}}</span>
                                 <span>{{$product->code}}</span>
                                 <p>{{$product->notice}}</p>
                                 <span>{{$product->tag}}</span>
+                                <form method="POST" action="{{route('product.destroy', [$product])}}">
+                                    @csrf
+                                    <button class="x" type="submit">x</button>
+                                </form>
+                        
 
                             </div>
-                        @endforeach
+                     
                     @endforeach
 
                 </div>

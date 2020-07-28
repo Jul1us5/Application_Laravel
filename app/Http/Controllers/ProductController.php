@@ -114,6 +114,26 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+
+       
+        // Album::$album;
+        // $album->delete();
+        
+        // $album->save();
+       
+  
+
+       
+        // if($product->getImages->count()){
+            foreach($product->getImages as $img) {
+                $img->delete();
+
+            }
+            $product->delete();
+            return redirect()->route('product.index');
+        
+        $product->delete();
+        return redirect()->route('product.index');
     }
+    
 }
