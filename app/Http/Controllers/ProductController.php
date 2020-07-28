@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -114,24 +118,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        foreach($product->getImages as $img) {
+            $img->delete();
 
-       
-        // Album::$album;
-        // $album->delete();
-        
-        // $album->save();
-       
-  
-
-       
-        // if($product->getImages->count()){
-            foreach($product->getImages as $img) {
-                $img->delete();
-
-            }
-            $product->delete();
-            return redirect()->route('product.index');
-        
+        }
         $product->delete();
         return redirect()->route('product.index');
     }
