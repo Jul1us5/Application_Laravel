@@ -44,7 +44,7 @@ Route::group(['prefix' => 'accounts'], function(){
  });
 
  Route::group(['prefix' => 'albums'], function(){
-    Route::get('', 'ProductController@index')->name('album.index');
+    Route::get('', 'AlbumController@index')->name('album.index');
     Route::get('create', 'AlbumController@create')->name('album.create');
     Route::post('store', 'AlbumController@store')->name('album.store');
     Route::post('update/{album}', 'AlbumController@update')->name('album.update');

@@ -15,8 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
-        return view('products.index', ['account' => $product]);
+        $products = Product::all();
+        return view('products.index', ['products' => $products]);
     }
 
     /**
@@ -40,28 +40,37 @@ class ProductController extends Controller
     {
 
         $product = new Product();
-        $album = new Album();
+        // $album = new Album();
         $product->title = $request->title;
         $product->name = $request->name;
         $product->about = $request->about;
         $product->code = $request->code;
         $product->notice = $request->notice;
         $product->tag = $request->tag;
-        $product->img = 'user.svg';
-        // $album->img = 'user.svg';
-        if ($request->hasFile('img')) {
-            $image = $request->file('img');
-            $name = $request->file('img')->getClientOriginalName();
-            $destinationPath = public_path('/images');
-            $image->move($destinationPath, $name);
-     
-        }
         $product->save();
-        return redirect()->route('product.index')->with('success_message', 'Yra!');
+
+
+
+        foreach ($request->file('img') as $image) {
+            $name = $image->getClientOriginalName();
+            $destinationPath = public_path('/images/products');
+            $image->move($destinationPath, $name);
+
+            $album = new Album();
+            $album->photo = $name;
+            $album->product_id = $product->id;
+            $album->save();
+            
+        }
+        return redirect()->route('product.index');
 
 
         
     }
+
+
+    // return redirect()->route('product.index')->with('success_message', 'Yra!');
+
 
     /**
      * Display the specified resource.
@@ -105,6 +114,26 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+
+       
+        // Album::$album;
+        // $album->delete();
+        
+        // $album->save();
+       
+  
+
+       
+        // if($product->getImages->count()){
+            foreach($product->getImages as $img) {
+                $img->delete();
+
+            }
+            $product->delete();
+            return redirect()->route('product.index');
+        
+        $product->delete();
+        return redirect()->route('product.index');
     }
+    
 }

@@ -14,7 +14,8 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //
+       $album = Album::all();
+       return view('album.index', ['albums' => $album]);
     }
 
     /**
@@ -35,7 +36,7 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//
     }
 
     /**
@@ -46,7 +47,7 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        //
+//
     }
 
     /**
@@ -80,6 +81,11 @@ class AlbumController extends Controller
      */
     public function destroy(Album $album)
     {
-        //
+
+        // dd(Album::$album);
+        // $album->delete();
+        // return redirect()->route('album.index');
+        
+        // return redirect()->route('album.index')->with('success_message', 'Ištrintas!');
     }
 }

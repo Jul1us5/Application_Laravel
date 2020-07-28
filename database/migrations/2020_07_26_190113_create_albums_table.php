@@ -15,9 +15,7 @@ class CreateAlbumsTable extends Migration
     {
         Schema::create('albums', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 255);
-            $table->string('name', 255);
-            $table->string('img', 255);
+            $table->string('photo', 255);
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();

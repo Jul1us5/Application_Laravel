@@ -10995,3 +10995,40 @@ span {
   outline: inherit;
 }
 
+.product {
+  display: inline-block;
+  background-color: #c7c7c7;
+  width: calc(99% / 3);
+  height: 350px;
+  margin-bottom: 5px;
+  border: 1px dashed black;
+}
+
+.product h1 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.product img {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: calc(50% - 50px);
+}
+
+.product span {
+  display: inline-block;
+  width: 100%;
+}
+
+.product p {
+  display: inline-block;
+  width: 100%;
+  color: red;
+  text-align: center;
+}
+
