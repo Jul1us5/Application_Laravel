@@ -43,8 +43,3 @@ if (addPhotoButton) {
         productPhotoInputs.appendChild(input);
     });
 }
-
-var card = document.querySelector('.icard');
-card.addEventListener( 'click', function() {
-  card.classList.toggle('is-flipped');
-});

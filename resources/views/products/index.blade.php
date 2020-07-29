@@ -21,21 +21,34 @@
                         </div>
                     @endif
 <!-- ------------------------------------------------ -->
+                    
                     @forelse($products as $product)
-                    <div class="scene scene--card">
-                        <div class="icard">
-                            <div class="icard__face icard__face--front">
-                            <img src="{{asset('images/products/'.$product->getImages[0]->photo)}}">
-                            
-                            </div>
-                            <div class="icard__face icard__face--back">
-                            <img src="{{asset('images/products/'.$product->getImages[0]->photo)}}">
-                            </div>
-                        </div>
+                    <div class="product-card">
+                    
+                        <h1>{{$product->title}}</h1>
+                        <img src="{{asset('images/products/'.$product->getImages[0]->photo)}}">
+                        <title>{{$product->name}}</title>
+
+                        <span>{{$product->about}}</span>
+                        <!-- <span>{{$product->code}}</span> -->
+                        <span>{{$product->tag}}</span>
+                        <p>{{$product->notice}}</p>
+                        
+
+                        <a href="{{route('product.show', [$product])}}">Plačiau</a>
+                        <form method="POST" action="{{route('product.destroy', [$product])}}">
+                            @csrf
+                            <button class="x" type="submit">Ištrinti</button>
+                        </form>
+
                     </div>
                     @empty
                         <p>Nieko nera...</p>
                     @endforelse
+                    
+                    
+                    
+                    
 
                     <!-- @forelse($products as $product)
                     <div class="product">

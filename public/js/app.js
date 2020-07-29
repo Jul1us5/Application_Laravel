@@ -37314,11 +37314,6 @@ if (addPhotoButton) {
   });
 }
 
-var card = document.querySelector('.icard');
-card.addEventListener('click', function () {
-  card.classList.toggle('is-flipped');
-});
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

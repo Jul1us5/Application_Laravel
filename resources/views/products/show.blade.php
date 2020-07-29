@@ -15,11 +15,14 @@
             
                 <div class="card-body">
                     <div class="show">
+                    <h1>{{$product->title}}</h1>
                      @foreach($product->getImages as $img) 
-                        <img src="{{asset('images/products/'.$img->photo)}}">
+                        <div class="images">
+                            <img src="{{asset('images/products/'.$img->photo)}}">
+                        </div>
                     @endforeach
                         <div class="showUser">
-                            <h1>{{$product->title}}</h1>
+                            
                             <title>{{$product->name}}</title>
                             <span>{{$product->about}}</span>
                             <span>{{$product->code}}</span>
