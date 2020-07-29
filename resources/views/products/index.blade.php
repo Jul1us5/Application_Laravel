@@ -20,32 +20,57 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    @foreach ($products as $product)
-                        
-                            <div class="product">
-                                <h1>{{$product->title}}</h1>
-                                <!-- @foreach ($product->getImages as $item)
+<!-- ------------------------------------------------ -->
+                    
+                    @forelse($products as $product)
+                    <div class="product-card">
+                    
+                        <h1>{{$product->title}}</h1>
+                        <img src="{{asset('images/products/'.$product->getImages[0]->photo)}}">
+                        <title>{{$product->name}}</title>
 
-                            
-                                
-                                @endforeach -->
-                                <img src="{{asset('images/products/'.$product->getImages[0]->photo)}}">
-                            
-                                <title>{{$product->name}}</title>
-                                <span>{{$product->about}}</span>
-                                <span>{{$product->code}}</span>
-                                <p>{{$product->notice}}</p>
-                                <span>{{$product->tag}}</span>
-                                <form method="POST" action="{{route('product.destroy', [$product])}}">
-                                    @csrf
-                                    <button class="x" type="submit">x</button>
-                                </form>
+                        <span>{{$product->about}}</span>
+                        <!-- <span>{{$product->code}}</span> -->
+                        <span>{{$product->tag}}</span>
+                        <p>{{$product->notice}}</p>
                         
 
-                            </div>
-                     
-                    @endforeach
+                        <a href="{{route('product.show', [$product])}}">Plačiau</a>
+                        <form method="POST" action="{{route('product.destroy', [$product])}}">
+                            @csrf
+                            <button class="x" type="submit">Ištrinti</button>
+                        </form>
 
+                    </div>
+                    @empty
+                        <p>Nieko nera...</p>
+                    @endforelse
+                    
+                    
+                    
+                    
+
+                    <!-- @forelse($products as $product)
+                    <div class="product">
+                        <h1>{{$product->title}}</h1>
+                        <img src="{{asset('images/products/'.$product->getImages[0]->photo)}}">
+                    
+                        <title>{{$product->name}}</title>
+                        <span>{{$product->about}}</span>
+                        <span>{{$product->code}}</span>
+                        <p>{{$product->notice}}</p>
+                        <span>{{$product->tag}}</span>
+                        <a href="{{route('product.show', [$product])}}">+</a>
+                        <form method="POST" action="{{route('product.destroy', [$product])}}">
+                            @csrf
+                            <button class="x" type="submit">x</button>
+                        </form>
+                    </div>
+                    @empty
+                        <p>Galiakas</p>
+                    @endforelse -->
+
+<!-- ------------------------------------------------ -->
                 </div>
             </div>
         </div>

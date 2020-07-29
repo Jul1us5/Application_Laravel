@@ -69,7 +69,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    BANKAS
+                    SHOP Application
                 </div>
 
                 <div class="links">

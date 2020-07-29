@@ -44,7 +44,6 @@ class ProductController extends Controller
     {
 
         $product = new Product();
-        // $album = new Album();
         $product->title = $request->title;
         $product->name = $request->name;
         $product->about = $request->about;
@@ -84,7 +83,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show', ['product' => $product]);
     }
 
     /**
@@ -123,7 +122,7 @@ class ProductController extends Controller
 
         }
         $product->delete();
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success_message', 'Ištrintas!');
     }
     
 }
