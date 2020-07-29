@@ -11067,14 +11067,8 @@ span {
 .show {
   display: inline-block;
   width: 100%;
+  min-height: 400px;
   border: 1px dashed grey;
-}
-
-.show img {
-  display: inline-block;
-  width: 150px;
-  height: auto;
-  float: left;
 }
 
 .show .showUser {
@@ -11082,9 +11076,57 @@ span {
   width: 100%;
 }
 
+.show .showUser span {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.show .showUser p {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.show a {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
 .show .images {
+  display: inline-block;
+  width: 100%;
+}
+
+.show .images img {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 150px;
+  height: auto;
+  margin-left: calc(50% - 75px);
+}
+
+.show h1 {
+  text-align: center;
+}
+
+.titles {
+  display: inline-block;
+  width: 100%;
+  min-height: 40px;
+  border: 1px dashed grey;
+  margin-bottom: 5px;
+}
+
+.titles a {
+  display: inline-block;
+  width: 100%;
+  float: left;
+  margin-top: 7px;
+  margin-left: 30px;
 }
 

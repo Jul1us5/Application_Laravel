@@ -21,9 +21,13 @@
                         </div>
                     @endif
 <!-- ------------------------------------------------ -->
-                    
+                    <div class="titles">
+                        ?
+                    </div>
                     @forelse($products as $product)
+
                     <div class="product-card">
+                        
                     
                         <h1>{{$product->title}}</h1>
                         <img src="{{asset('images/products/'.$product->getImages[0]->photo)}}">
