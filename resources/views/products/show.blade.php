@@ -14,12 +14,16 @@
                     @include('layouts.menu')
             
                 <div class="card-body">
+                    <div class="titles">
+                    <a href="{{route('product.index')}}">< Sugrįšti</a>
+                    </div>
                     <div class="show">
                     <h1>{{$product->title}}</h1>
                      @foreach($product->getImages as $img) 
                         <div class="images">
                             <img src="{{asset('images/products/'.$img->photo)}}">
                         </div>
+                        
                     @endforeach
                         <div class="showUser">
                             
@@ -29,6 +33,7 @@
                             <p>{{$product->notice}}</p>
                             <span>{{$product->tag}}</span>
                         </div>
+                        <a href="#">Užsisakyti į namus</a>
                     </div>
                 </div>
             </div>
