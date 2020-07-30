@@ -10928,9 +10928,25 @@ a.text-dark:focus {
   }
 }
 
+body {
+  margin: 0;
+  font-family: "Josefin", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #212529;
+  text-align: left;
+  background-color: #7d7d7d;
+}
+
 .col-md-8 {
-  flex: 0 0 96.6666666667%;
-  max-width: 96.6666666667%;
+  flex: 0 0 100%;
+  max-width: 125%;
+}
+
+.col-md-9 {
+  flex: 0 0 90%;
+  max-width: 90%;
 }
 
 .card-header a {
@@ -11012,6 +11028,7 @@ span {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
+  margin-top: 5px;
 }
 
 .product-card img {
@@ -11059,6 +11076,73 @@ span {
   display: inline-block;
   width: 100%;
   min-height: 22px;
+}
+
+.show {
+  display: inline-block;
+  width: 100%;
+  min-height: 400px;
+  border: 1px dashed grey;
+}
+
+.show .showUser {
+  display: inline-block;
+  width: 100%;
+}
+
+.show .showUser span {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.show .showUser p {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.show a {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.show .images {
+  display: inline-block;
+  width: 100%;
+}
+
+.show .images img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: auto;
+  margin-left: calc(50% - 75px);
+}
+
+.show h1 {
+  text-align: center;
+}
+
+.titles {
+  display: inline-block;
+  width: 99.1%;
+  min-height: 40px;
+  border: 1px dashed grey;
+  margin-bottom: 5px;
+  margin-left: 3.5px;
+}
+
+.titles a {
+  display: inline-block;
+  width: 100%;
+  float: left;
+  margin-top: 7px;
+  margin-left: 30px;
 }
 
 @media (max-width: 576px) {
