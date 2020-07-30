@@ -21,37 +21,39 @@
                         </div>
                     @endif
 <!-- ------------------------------------------------ -->
+                  <div class="category">
+                    <div class="create_category">
+                      <form action="{{ route('category.store') }}" method="POST">
+                        @csrf
+              
+                          <select name="parent_id">
+                            <option type="hidden" value="0">Kategorija</option>
+                          </select>
+        
+                          <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Kategorijos pavadinimas" required>
+                          <button type="submit" class="btn btn-primary">Sukurti</button>
+            
+                      </form>
+                    </div>
+                  </div>
 
 
-             <!-- <form action="{{ route('category.store') }}" method="POST">
-                    @csrf
-          
-                      <select name="parent_id">
-                        <option type="hidden" value="0">Kategorija</option>
-                      </select>
-     
-                      <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Kategorijos pavadinimas" required>
-                      <button type="submit" class="btn btn-primary">Sukurti</button>
-         
-                  </form>
-
-
-
+                  <div class="category">
 
                   @foreach ($categories as $category)
-                   
-                   {{ $category->title }}
-               
+                    <div class="inner_category">
+                    {{ $category->title }}
+                    <form action = "{{route('category.destroy', $category->id) }}" method="POST">
+                              @csrf
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                    </div>
+                  @endforeach 
 
-            <form action = "{{route('category.destroy', $category->id) }}" method="POST">
-                      @csrf
+                  </div>
 
-              
-                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-            </form>
-        
 
-             @endforeach -->
+             
 
 <!-- ------------------------------------------------ -->
                 </div>
