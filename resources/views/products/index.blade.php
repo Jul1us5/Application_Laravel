@@ -22,7 +22,11 @@
                     @endif
 <!-- ------------------------------------------------ -->
                     <div class="titles">
-                        ?
+                    <select name="product">
+                        @foreach ($products as $product)
+                            <option value="{{$product->id}}">{{$product->title}}</option>
+                        @endforeach
+                    </select><br><br>
                     </div>
                     @forelse($products as $product)
 
