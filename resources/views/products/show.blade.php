@@ -17,6 +17,7 @@
                     <div class="titles">
                     <a href="{{route('product.index')}}">< Sugrįšti</a>
                     </div>
+                    
                     <div class="show">
                     <h1>{{$product->title}}</h1>
                      @foreach($product->getImages as $img) 

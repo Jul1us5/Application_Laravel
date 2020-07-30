@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Album;
+use App\Category;
+use App\ProductCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -20,7 +22,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('products.index', ['products' => $products]);
+        $categories = Category::all();
+        return view('products.index', ['products' => $products], ['categories' => $categories]);
     }
 
     /**
@@ -31,7 +34,8 @@ class ProductController extends Controller
     public function create()
     {
         $product = Product::all();
-        return view('products.create');
+        $categories = Category::all();
+        return view('products.create')->withCategories($categories);
     }
 
     /**
@@ -65,14 +69,22 @@ class ProductController extends Controller
             $album->save();
             
         }
-        return redirect()->route('product.index');
+
+        $categories = $request->categories;
+
+       
+ 
+            foreach ($categories as $category){
+            $productCategory = new ProductCategory;
+            $productCategory->product_id = $product->id;
+            $productCategory->category_id = $category;
+            $productCategory->save();
+            }
+        return redirect()->route('product.index')->with('success_message', 'Sukurta!');
 
 
         
     }
-
-
-    // return redirect()->route('product.index')->with('success_message', 'Yra!');
 
 
     /**
