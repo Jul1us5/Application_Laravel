@@ -36,10 +36,9 @@
                         <h1>{{$product->title}}</h1>
                         <img src="{{asset('images/products/'.$product->getImages[0]->photo)}}">
                         <title>{{$product->name}}</title>
-
                         <span>{{$product->about}}</span>
                         <!-- <span>{{$product->code}}</span> -->
-                        <span>{{$product->tag}}</span>
+                        <!-- <span>{{$product->tag}}</span> -->
                         <p>{{$product->notice}}</p>
                         
 
