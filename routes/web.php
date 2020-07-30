@@ -52,3 +52,23 @@ Route::group(['prefix' => 'accounts'], function(){
     Route::get('show/{album}', 'AlbumController@show')->name('album.show');
  });
 
+//  Route::group(['prefix' => 'category'], function(){
+//    Route::get('', 'CatalogController@index')->name('catalog.index');
+//    Route::get('create', 'CatalogController@create')->name('catalog.create');
+//    Route::post('store', 'CatalogController@store')->name('catalog.store');
+//    Route::post('update/{catalog}', 'CatalogController@update')->name('catalog.update');
+//    Route::post('delete/{catalog}', 'CatalogController@destroy')->name('catalog.destroy');
+//    Route::get('show/{catalog}', 'CatalogController@show')->name('catalog.show');
+// });
+
+Route::resource('category', 'CategoryController');
+
+Route::group(['prefix' => 'categories'], function(){
+   Route::get('', 'CategoryController@index')->name('category.index');
+   Route::get('create', 'CategoryController@create')->name('category.create');
+   Route::post('store', 'CategoryController@store')->name('category.store');
+   Route::get('edit/{category}', 'CategoryController@edit')->name('category.edit');
+   Route::post('update/{category}', 'CategoryController@update')->name('category.update');
+   Route::post('delete/{category}', 'CategoryController@destroy')->name('category.destroy');
+});
+
