@@ -20,7 +20,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         $products = Product::all();
         $categories = Category::all();
         return view('products.index', ['products' => $products], ['categories' => $categories]);
@@ -129,10 +129,19 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+
+
         foreach($product->getImages as $img) {
             $img->delete();
 
         }
+        // $product->getCategory();
+        // dd($product->getCategory;
+        foreach($product->getCategory as $cat) {
+            $cat->delete();
+
+        }
+
         $product->delete();
         return redirect()->route('product.index')->with('success_message', 'Ištrintas!');
     }
