@@ -13,7 +13,7 @@ class Product extends Model
     {
         return $this->hasMany('App\Album', 'product_id', 'id');
     }
-    public function getCategory()
+    public function categories()
     {
         return $this->hasMany('App\ProductCategory', 'product_id', 'id');
     }

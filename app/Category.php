@@ -2,7 +2,6 @@
 
 namespace App;
 use App\Tag;
-use App\Category;
 use App\ProductCategory;
 use App\Product;
 
@@ -17,11 +16,6 @@ class Category extends Model
     }
 
     public function products()
-    {
-        return $this->hasMany('App\Product');
-    }
-
-    public function getProducts()
     {
         return $this->hasMany('App\ProductCategory', 'category_id', 'id');
     }

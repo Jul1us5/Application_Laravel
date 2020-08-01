@@ -19,12 +19,30 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+
         $categories = Category::all();
+        $products = Product::all();
+
+        if ($request->category) {
+            $products = [];
+            $category = Category::where('id', $request->category)->first();
+            $productss = $category->products->toArray();
+            foreach ($productss as $products_) {
+                $products[] = Product::where('id', $products_['product_id'])->first();
+            }
+            
+        } else {
+            $products = Product::all();
+        }
+
+
         return view('products.index', ['products' => $products], ['categories' => $categories]);
+
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -67,23 +85,19 @@ class ProductController extends Controller
             $album->photo = $name;
             $album->product_id = $product->id;
             $album->save();
-            
         }
 
         $categories = $request->categories;
 
-       
- 
-            foreach ($categories as $category){
+
+
+        foreach ($categories as $category) {
             $productCategory = new ProductCategory;
             $productCategory->product_id = $product->id;
             $productCategory->category_id = $category;
             $productCategory->save();
-            }
+        }
         return redirect()->route('product.index')->with('success_message', 'Sukurta!');
-
-
-        
     }
 
 
@@ -129,12 +143,18 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        foreach($product->getImages as $img) {
-            $img->delete();
 
+
+        foreach ($product->getImages as $img) {
+            $img->delete();
         }
+        // $product->getCategory();
+        // dd($product->getCategory;
+        foreach ($product->getCategory as $cat) {
+            $cat->delete();
+        }
+
         $product->delete();
         return redirect()->route('product.index')->with('success_message', 'Ištrintas!');
     }
-    
 }

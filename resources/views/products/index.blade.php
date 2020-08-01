@@ -22,11 +22,15 @@
                     @endif
 <!-- ------------------------------------------------ -->
                     <!-- <div class="titles"> -->
-                    <select name="product">
-                        @foreach ($categories as $category)
-                            <option value="{{$category->id}}">{{$category->title}}</option>
-                        @endforeach
-                    </select><br><br>
+
+                    <form action="{{route('product.index')}}" method="get">
+                        <select name="category">
+                            @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
+                        </select><br><br>
+                        <button type="submit">FILER</button>
+                    </form>
                     <!-- </div> -->
                     @forelse($products as $product)
 

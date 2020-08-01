@@ -34,6 +34,7 @@
                             <input type="checkbox" name="categories[]" value="{{$category->id}}">
                             @endforeach
                         </div>
+                        
                     
 
                         <div id="product-photo-inputs">
